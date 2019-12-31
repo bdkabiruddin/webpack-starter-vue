@@ -1,10 +1,11 @@
 <template>
-    <div class="home">
+    <div class="dashboadr">
+    	This page is protected by auth
     </div>
 </template>
 <script>
 export default {
-    name: "app",
+    name: "dashboard",
     data() {
         return {}
     },

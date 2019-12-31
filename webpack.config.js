@@ -17,7 +17,9 @@ module.exports = {
         alias: {
             vue$: "vue/dist/vue.esm.js",
             '@/views': path.resolve(__dirname, 'src/views'),
+            '@/modules': path.resolve(__dirname, 'src/modules'),
             '@/components': path.resolve(__dirname, 'src/components'),
+            '@/store': path.resolve(__dirname, 'src/store'),
         },
         extensions: ['.vue', '.js']
     },
@@ -30,12 +32,12 @@ module.exports = {
             test: /\.js$/,
             exclude: /(node_modules)/,
             use: {
-              loader: 'babel-loader',
-              options: {
-                presets: ['@babel/preset-env']
-              }
+                loader: 'babel-loader',
+                options: {
+                    presets: ['@babel/preset-env']
+                }
             }
-          }, {
+        }, {
             test: /\.vue$/,
             loader: ['vue-loader']
         }, {
@@ -85,16 +87,13 @@ module.exports = {
     },
     plugins: [
         new VueLoaderPlugin(),
-        new CopyPlugin([
-            { 
-                from: './src/assets/imgs', 
-                to: './imgs' 
-            },
-            { 
-                from: './src/assets/fonts', 
-                to: './fonts' 
-            }
-          ]),
+        new CopyPlugin([{
+            from: './src/assets/imgs',
+            to: './imgs'
+        }, {
+            from: './src/assets/fonts',
+            to: './fonts'
+        }]),
         new CleanWebpackPlugin(),
         new HtmlWebpackPlugin({
             template: './src/assets/template/index.html'
