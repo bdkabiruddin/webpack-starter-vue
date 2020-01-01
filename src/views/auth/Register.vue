@@ -49,7 +49,7 @@ export default {
                 password: this.password,
                 is_admin: this.is_admin
             }
-            this.$store.dispatch('register', data)
+            this.$store.dispatch('auth/register', data)
                 .then(() => this.$router.push('/dashboard'))
                 .catch(err => console.log(err))
         }

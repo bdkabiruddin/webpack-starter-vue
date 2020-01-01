@@ -34,7 +34,7 @@ export default {
         login: function () {
             let email = this.email
             let password = this.password
-            this.$store.dispatch('login', {
+            this.$store.dispatch('auth/login', {
                     email,
                     password
                 })
